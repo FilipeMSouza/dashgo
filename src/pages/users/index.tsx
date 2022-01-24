@@ -12,6 +12,7 @@ import {
   Th,
   Thead,
   Tr,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 import Head from "next/Head";
@@ -21,8 +22,18 @@ import Sidebar from "../../components/Sidebar";
 
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import Pagination from "../../components/Pagination";
+import Link from "next/link";
+
+
+
 
 export default function UserList() {
+
+  const isWideVersion = useBreakpointValue({
+    base: false,
+    lg: true,
+  })
+
   return (
     <>
       <Head>
@@ -45,28 +56,29 @@ export default function UserList() {
               <Heading size='lg' fontWeight='normal'>
                 User List
               </Heading>
-
+              <Link href="/users/create" passHref>
               <Button
                 as='a'
                 size='sm'
                 fontSize='sm'
                 colorScheme='pink'
-
-                leftIcon={<Icon as={RiAddLine} fontSize='20'/>}
+                leftIcon={<Icon as={RiAddLine} fontSize='20' />}
+                
               >
                 Create New User
               </Button>
+              </Link>
             </Flex>
 
             <Table colorScheme='whiteAlpha'>
               <Thead>
                 <Tr>
-                  <Th px='6' color='gray.300' width='8'>
+
+                  <Th px={['4', '4', '6']} color='gray.300' width='8'>
                     <Checkbox colorScheme='pink' />
                   </Th>
                   <Th> Users </Th>
-                  <Th>Created At </Th>
-                  <Th w='8'></Th>
+                  {isWideVersion && <Th>Created At </Th>}
                 </Tr>
               </Thead>
               <Tbody>
@@ -76,26 +88,13 @@ export default function UserList() {
                   </Td>
                   <Td>
                     <Box>
-                      <Text fontweight='bold'>Filipe Souza</Text >
+                      <Text fontWeight='bold'>Filipe Souza</Text >
                       <Text fontSize='small' color='gray.300'>
                         filipe.souza1906@gmail.com
                       </Text>
                     </Box>
                   </Td>
-                  <Td>
-                    21de janeiro, 2022
-                  </Td>
-                  <Td>
-                    <Button
-                      as='a'
-                      size='sm'
-                      fontSize='sm'
-                      colorScheme='purple'
-                      leftIcon={<Icon as={RiPencilLine} fontSize='xs'/>}
-                    >
-                      Edit
-                    </Button>
-                  </Td>
+                  {isWideVersion && <Td> 21de janeiro, 2022</Td>}
                 </Tr>
               </Tbody>
             </Table>

@@ -21,6 +21,13 @@
   - Icons that are used is from react-icons
     - [react-icons](https://react-icons.github.io/react-icons/)
 
+  - react-hook-form used to validate all the inputs
+    - [react-hook-form](https://react-hook-form.com/)
+  
+  - Yup to build validation schemas
+    - [Yup](https://github.com/jquense/yup)
+
+
 
 ## Furthermore I'll be detaling more this project
 

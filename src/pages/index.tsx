@@ -1,8 +1,36 @@
 import { Flex, Button, Stack, } from "@chakra-ui/react";
 import Head from "next/head";
-import { Input } from "../components/form/Input";
+import { SubmitHandler, useForm } from "react-hook-form";
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup' 
+
+import { Input } from "../components/Form/Input";
+
+type SingInFormData={
+  email: string,
+  password: string,
+}
+
+const signInFormSchema = yup.object().shape({
+  email: yup.string().required('E-mail is required').email('Invalid E-mail'),
+  password: yup.string().required('Password is required')
+})
+
 
 export default function SignIn() {
+
+  const {register, handleSubmit, formState} = useForm({
+    resolver: yupResolver(signInFormSchema)
+  })
+
+  const { errors } = formState
+
+  const handleSignIn:SubmitHandler <SingInFormData> = async (data) => {
+    await new Promise(resolve => setTimeout(resolve,2000))
+    
+    console.log(data)
+  }
+
   return (
     <>
       <Head>
@@ -21,21 +49,32 @@ export default function SignIn() {
           bg='gray.800'
           p='8' /*padding 2rem -> 32px*/
           borderRadius='8px'
-
           flexDir='column'
+          onSubmit={handleSubmit(handleSignIn)}
         >
           <Stack spacing='4'/* 16px -> 1rem */>
 
-            <Input name='email' type='email' label='E-mail'></Input>
-            <Input name='password' type='password' label='Password'></Input>
+            <Input 
+              name='email'  
+              label='E-mail'
+              error = {errors.email}
+              {...register('email')}
+            />
+            <Input 
+              name='password'  
+              type='password' 
+              label='Password'
+              error = {errors.password}
+              {...register('password')}
+            />
 
           </Stack>
 
           <Button
             mt='8' /*Margin Top 1.5rem -> 24px*/
-
             type='submit'
             colorScheme='pink'
+            isLoading={formState.isSubmitting}
           >
             Login
           </Button>
