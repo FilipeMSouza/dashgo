@@ -19,6 +19,10 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Input } from "../../components/Form/Input";
 import { Header } from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
+import { useMutation } from "react-query";
+import { api } from "../../services/api";
+import { queryClient } from "../../services/queryClient";
+import { useRouter } from "next/router";
 
 
 type CreateUserFormData = {
@@ -40,6 +44,20 @@ const CreateUserFormSchema = yup.object().shape({
 
 export default function CreateUser() {
 
+  const router  = useRouter()
+  const createUser = useMutation(async (user: CreateUserFormData) => {
+    const response = await api.post('users',{
+      user:{
+        ...user,
+        created_at: new Date()
+      }
+    })
+  },{
+    onSuccess:()=>{
+      queryClient.invalidateQueries('users')
+    }
+  })
+
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(CreateUserFormSchema)
   })
@@ -48,9 +66,8 @@ export default function CreateUser() {
 
 
   const handleCreateUser: SubmitHandler<CreateUserFormData> = async (data) => {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    console.log(data)
+    await createUser.mutateAsync(data)
+    router.push('/users')
   }
 
 
