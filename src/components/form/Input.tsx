@@ -1,5 +1,4 @@
 import { color, FormControl, FormErrorMessage, FormLabel, Input as ChakraInput, InputProps as ChakraInputProps } from "@chakra-ui/react";
-import { generateKeySync } from "crypto";
 import { forwardRef, ForwardRefRenderFunction } from "react";
 import { FieldError } from "react-hook-form";
 
@@ -22,7 +21,7 @@ const InputBase: ForwardRefRenderFunction<HTMLInputElement, InputProps>
       bg='gray.900'
       variant='filled'
       _hover={{ bg: 'gray.900'}}
-      siza ='lg'
+      size ='lg'
       error={error}
       ref={ref}
       {...rest}

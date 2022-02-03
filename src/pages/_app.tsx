@@ -9,6 +9,7 @@ import { theme } from '../styles/theme'
 import { makeServer } from '../services/mirage'
 import { queryClient } from '../services/queryClient'
 
+
 if (process.env.NODE_ENV === 'development') {
   makeServer()
 }
@@ -20,10 +21,12 @@ function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <ChakraProvider theme={theme}>
         <SidebarDrawerProvider>
-          <Component {...pageProps} />
+          
+            <Component {...pageProps} />
+          
         </SidebarDrawerProvider>
       </ChakraProvider>
-      <ReactQueryDevtools/>
+      <ReactQueryDevtools />
     </QueryClientProvider>
   )
 }

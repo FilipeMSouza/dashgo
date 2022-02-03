@@ -27,8 +27,6 @@
   - Yup to build validation schemas
     - [Yup](https://github.com/jquense/yup)
 
-
-
 ## Furthermore I'll be detaling more this project
 
 - By now See you on github
