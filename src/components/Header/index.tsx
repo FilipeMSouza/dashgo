@@ -1,11 +1,11 @@
-import { Flex, Icon, IconButton, useBreakpointValue } from "@chakra-ui/react";
+import { Logo } from "./Logo";
+import { Profile } from "./Profile";
+import { NotifyNav } from "./NotifyNav";
+import { SearchBox } from "./SearchBox";
 import { RiMenuLine } from "react-icons/ri";
 import { useSidebarDrawer } from "../../contexts/SidebarDrawerContext";
+import { Flex, Icon, IconButton, useBreakpointValue } from "@chakra-ui/react";
 
-import { Logo } from "./Logo";
-import { NotifyNav } from "./NotifyNav";
-import { Profile } from "./Profile";
-import { SearchBox } from "./SearchBox";
 
 export function Header() {
 

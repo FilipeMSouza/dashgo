@@ -17,19 +17,19 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 
-import Head from "next/Head";
+import Head from "next/head";
 import NextLink from "next/link";
 import { RiAddLine } from "react-icons/ri";
 import { useState } from "react";
 import { GetServerSideProps } from "next";
 
-import { Header } from "../../components/Header";
+import { api } from "../../services/api";
 import Sidebar from "../../components/Sidebar";
+import { Header } from "../../components/Header";
+import getUsers from "../../services/hooks/useUsers"
 import Pagination from "../../components/Pagination";
 import { useUsers } from "../../services/hooks/useUsers";
 import { queryClient } from "../../services/queryClient";
-import { api } from "../../services/api";
-import getUsers from "../../services/hooks/useUsers"
 
 
 

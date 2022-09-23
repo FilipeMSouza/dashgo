@@ -1,5 +1,5 @@
-import { Box, Button, Stack, Text } from "@chakra-ui/react";
 import { PaginationItem } from "./PaginationItem";
+import { Box, Button, Stack, Text } from "@chakra-ui/react";
 
 interface PaginationProps {
   totalCountOfRegisters: number;

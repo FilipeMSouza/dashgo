@@ -3,11 +3,11 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { QueryClientProvider } from 'react-query'
 
-import { SidebarDrawerProvider } from '../contexts/SidebarDrawerContext'
 
 import { theme } from '../styles/theme'
 import { makeServer } from '../services/mirage'
 import { queryClient } from '../services/queryClient'
+import { SidebarDrawerProvider } from '../contexts/SidebarDrawerContext'
 
 
 if (process.env.NODE_ENV === 'development') {

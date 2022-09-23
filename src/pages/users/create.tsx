@@ -9,20 +9,20 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-import Head from "next/Head";
-import Link from "next/link";
-import { SubmitHandler, useForm } from "react-hook-form";
 import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup'
-
-
-import { Input } from "../../components/Form/Input";
-import { Header } from "../../components/Header";
-import Sidebar from "../../components/Sidebar";
-import { useMutation } from "react-query";
-import { api } from "../../services/api";
-import { queryClient } from "../../services/queryClient";
+import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
+import { useMutation } from "react-query";
+import { yupResolver } from '@hookform/resolvers/yup'
+import { SubmitHandler, useForm } from "react-hook-form";
+
+
+import { api } from "../../services/api";
+import Sidebar from "../../components/Sidebar";
+import { Header } from "../../components/Header";
+import { Input } from "../../components/Form/Input";
+import { queryClient } from "../../services/queryClient";
 
 
 type CreateUserFormData = {

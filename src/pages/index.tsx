@@ -1,9 +1,9 @@
+import * as yup from 'yup';
+import Head from "next/head";
+import { useContext } from "react";
+import { yupResolver } from '@hookform/resolvers/yup' 
 import { Flex, Button, Stack, } from "@chakra-ui/react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from '@hookform/resolvers/yup' 
-import { useContext } from "react";
-import Head from "next/head";
-import * as yup from 'yup';
 
 import { Input } from "../components/Form/Input";
 

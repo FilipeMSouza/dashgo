@@ -1,5 +1,5 @@
-import { createServer, Factory, Model, Response, ActiveModelSerializer } from "miragejs";
 import faker from "faker"
+import { createServer, Factory, Model, Response, ActiveModelSerializer } from "miragejs";
 
 
 type User = {
